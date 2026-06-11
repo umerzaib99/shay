@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DN. Shamayam Bashir | Clinical Nutritionist</title>
+  <meta name="description" content="Clinical Nutritionist specialising in Weight Management, PCOS, Diabetes, Hypertension & Menopause. Evidence-based nutrition care. Book a consultation today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       TOKENS
+    ========================================================= */
+    :root {
+      --cream:       #FAF4EE;
+      --beige:       #F0E0CF;
+      --beige-mid:   #E4CEBA;
+      --card-bg:     #F5E9DF;
+      --rose:        #C4907A;
+      --rose-light:  #D9AD9A;
+      --rose-dark:   #A87260;
+      --brown:       #6B4332;
+      --brown-dark:  #3D2318;
+      --border:      #D8C0AD;
+      --muted:       #907060;
+      --white:       #FFFFFF;
+    }
+
+    /* =========================================================
+       BASE
+    ========================================================= */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--brown-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6%;
+      background: rgba(250,244,238,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(107,67,50,.1); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--brown); text-decoration: none;
+      letter-spacing: .04em;
+    }
+    .nav-logo span { color: var(--rose); font-style: italic; }
+
+    .nav-links {
+      display: flex; list-style: none;
+      gap: 2.25rem; align-items: center;
+    }
+    .nav-links a {
+      font-size: .8rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--brown); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links .cta-link {
+      background: var(--rose); color: #fff !important;
+      padding: .55rem 1.4rem; border-radius: 50px;
+      transition: background .2s !important;
+    }
+    .nav-links .cta-link:hover { background: var(--rose-dark) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: .25rem;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--brown); border-radius: 2px; transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 6% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-blob {
+      position: absolute; right: -8%; top: 50%;
+      transform: translateY(-50%);
+      width: 52vw; height: 52vw;
+      max-width: 680px; max-height: 680px;
+      background: var(--beige); border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .7rem;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1rem;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 28px; height: 1.5px; background: var(--rose);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 600; line-height: 1.05;
+      color: var(--brown-dark); margin-bottom: .3rem;
+    }
+    .hero h1 .prefix {
+      color: var(--rose); font-weight: 300; font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: .85rem; color: var(--muted);
+      letter-spacing: .06em; margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.02rem; line-height: 1.75;
+      color: var(--brown); max-width: 480px; margin-bottom: 2rem;
+    }
+
+    .tags {
+      display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 2.5rem;
+    }
+    .tag {
+      background: var(--beige); border: 1px solid var(--border);
+      color: var(--brown); padding: .38rem .9rem;
+      border-radius: 50px; font-size: .77rem; font-weight: 500;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--rose); color: #fff;
+      padding: .85rem 2rem; border-radius: 50px;
+      font-size: .88rem; font-weight: 500;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; color: var(--brown);
+      padding: .85rem 2rem; border-radius: 50px;
+      font-size: .88rem; font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--border); transition: all .2s;
+    }
+    .btn-outline:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+
+    /* Photo frame */
+    .hero-photo { position: relative; display: flex; justify-content: center; }
+
+    .photo-wrap {
+      width: 100%; max-width: 420px; position: relative;
+    }
+    .photo-wrap img {
+      width: 100%; height: 540px;
+      object-fit: cover; object-position: center top;
+      border-radius: 55% 55% 46% 46% / 65% 65% 38% 38%;
+    }
+    .photo-ring {
+      position: absolute; inset: -14px;
+      background: var(--beige-mid);
+      border-radius: 55% 55% 46% 46% / 65% 65% 38% 38%;
+      z-index: -1;
+    }
+
+    /* Floating stat cards */
+    .stat-card {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: .9rem 1.15rem;
+      box-shadow: 0 8px 32px rgba(107,67,50,.12);
+      display: flex; align-items: center; gap: .75rem;
+      z-index: 2;
+    }
+    .stat-card.bottom { bottom: 55px; left: -24px; }
+    .stat-card.top    { top: 40px; right: -20px; }
+
+    .stat-icon {
+      width: 42px; height: 42px;
+      background: var(--rose); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 600;
+      color: var(--brown-dark); line-height: 1;
+    }
+    .stat-lbl { font-size: .68rem; color: var(--muted); }
+
+    .stat-card.top {
+      background: var(--rose); border-color: var(--rose);
+      flex-direction: column; text-align: center; gap: .2rem;
+      padding: 1rem 1.2rem;
+    }
+    .stat-card.top .stat-num { color: #fff; font-size: 1.8rem; }
+    .stat-card.top .stat-lbl { color: rgba(255,255,255,.75); }
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+    .about {
+      padding: 7rem 6%;
+      background: var(--white);
+    }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.15fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img {
+      width: 100%; max-width: 460px; height: 520px;
+      object-fit: cover; object-position: center top;
+      border-radius: 22px;
+    }
+    .about-img-dot {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 170px; height: 170px;
+      background: var(--beige); border-radius: 22px; z-index: -1;
+    }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: .7rem;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: .75rem;
+    }
+    .section-label::before {
+      content: ''; width: 28px; height: 1.5px; background: var(--rose);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 600; line-height: 1.2;
+      color: var(--brown-dark); margin-bottom: 1.25rem;
+    }
+    .section-title em { color: var(--rose); font-style: italic; }
+
+    .about-body p {
+      font-size: .96rem; line-height: 1.85;
+      color: var(--brown); margin-bottom: 1.1rem;
+    }
+
+    .creds {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .9rem; margin-top: 2rem;
+    }
+    .cred {
+      display: flex; align-items: flex-start; gap: .7rem;
+      background: var(--cream);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: .95rem 1.1rem;
+    }
+    .cred-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .cred p { font-size: .8rem; line-height: 1.55; color: var(--brown); }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+    .services { padding: 7rem 6%; background: var(--cream); }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-hdr {
+      text-align: center; margin-bottom: 3.5rem;
+    }
+    .section-hdr .section-label {
+      justify-content: center;
+    }
+    .section-hdr .section-label::before { display: none; }
+    .section-hdr .section-label::after {
+      content: ''; width: 28px; height: 1.5px; background: var(--rose);
+    }
+
+    .service-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem;
+    }
+    .svc-card {
+      background: var(--white);
+      border: 1.5px solid var(--border); border-radius: 20px;
+      padding: 2rem 1.4rem; text-align: center;
+      transition: all .3s; cursor: default;
+    }
+    .svc-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--rose-light);
+      box-shadow: 0 14px 40px rgba(168,114,96,.12);
+    }
+    .svc-icon {
+      width: 58px; height: 58px;
+      background: var(--beige); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.75rem; margin: 0 auto 1.25rem;
+      transition: background .3s;
+    }
+    .svc-card:hover .svc-icon { background: var(--beige-mid); }
+    .svc-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--brown-dark); margin-bottom: .55rem;
+    }
+    .svc-card p {
+      font-size: .79rem; line-height: 1.6; color: var(--muted);
+    }
+
+    /* =========================================================
+       PRICING
+    ========================================================= */
+    .pricing { padding: 7rem 6%; background: var(--card-bg); }
+    .pricing-inner { max-width: 1200px; margin: 0 auto; }
+
+    .pricing-tabs {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: .55rem; margin-bottom: 3rem;
+    }
+    .ptab {
+      background: transparent;
+      border: 1.5px solid var(--border); color: var(--brown);
+      padding: .58rem 1.35rem; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .83rem; font-weight: 500;
+      cursor: pointer; transition: all .2s; letter-spacing: .02em;
+    }
+    .ptab.active {
+      background: var(--rose); border-color: var(--rose); color: #fff;
+    }
+    .ptab:hover:not(.active) { border-color: var(--rose); color: var(--rose); }
+
+    .ppanel {
+      display: none;
+      animation: fadeUp .3s ease;
+    }
+    .ppanel.active {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(12px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    .plan-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 24px; padding: 2rem 1.75rem;
+      position: relative; transition: all .3s;
+    }
+    .plan-card:hover {
+      box-shadow: 0 12px 40px rgba(107,67,50,.1);
+      transform: translateY(-3px);
+    }
+    .plan-card.featured {
+      background: var(--brown-dark);
+      border-color: var(--brown-dark);
+    }
+
+    .plan-badge {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: var(--beige); color: var(--brown);
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .28rem .75rem; border-radius: 50px;
+    }
+    .plan-card.featured .plan-badge { background: var(--rose); color: #fff; }
+
+    .plan-dur {
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: .7rem;
+    }
+    .plan-card.featured .plan-dur { color: var(--rose-light); }
+
+    .plan-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.3rem; font-weight: 600;
+      color: var(--brown-dark); line-height: 1;
+      margin-bottom: .2rem;
+    }
+    .plan-card.featured .plan-price { color: #fff; }
+
+    .plan-note {
+      font-size: .77rem; color: var(--muted); margin-bottom: 1.2rem;
+    }
+    .plan-card.featured .plan-note { color: rgba(255,255,255,.5); }
+
+    .plan-sess {
+      font-size: .83rem; font-weight: 600; color: var(--brown);
+      margin-bottom: 1.2rem; padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: .45rem;
+    }
+    .plan-sess::before { content:'✦'; color: var(--rose); font-size:.65rem; }
+    .plan-card.featured .plan-sess {
+      color: rgba(255,255,255,.85);
+      border-bottom-color: rgba(255,255,255,.12);
+    }
+    .plan-card.featured .plan-sess::before { color: var(--rose-light); }
+
+    .plan-list { list-style: none; margin-bottom: 1.75rem; }
+    .plan-list li {
+      font-size: .8rem; line-height: 1.5;
+      color: var(--brown);
+      padding: .35rem 0 .35rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid rgba(216,192,173,.3);
+    }
+    .plan-list li:last-child { border-bottom: none; }
+    .plan-list li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--rose); font-weight: 700; font-size: .75rem;
+    }
+    .plan-card.featured .plan-list li { color: rgba(255,255,255,.78); }
+    .plan-card.featured .plan-list li { border-bottom-color: rgba(255,255,255,.08); }
+    .plan-card.featured .plan-list li::before { color: var(--rose-light); }
+
+    .plan-btn {
+      display: block; text-align: center;
+      padding: .8rem; border-radius: 12px;
+      font-size: .85rem; font-weight: 600;
+      text-decoration: none; transition: all .2s;
+      background: var(--beige); color: var(--brown);
+      border: 1.5px solid var(--border);
+    }
+    .plan-btn:hover { background: var(--rose); color: #fff; border-color: var(--rose); }
+    .plan-card.featured .plan-btn {
+      background: var(--rose); color: #fff; border-color: var(--rose);
+    }
+    .plan-card.featured .plan-btn:hover {
+      background: var(--rose-dark); border-color: var(--rose-dark);
+    }
+
+    /* =========================================================
+       WHY
+    ========================================================= */
+    .why { padding: 7rem 6%; background: var(--white); }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+
+    .why-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1.4rem; margin-top: 3rem;
+    }
+    .why-item {
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: 20px; padding: 1.75rem;
+    }
+    .why-em { font-size: 2rem; margin-bottom: 1rem; }
+    .why-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--brown-dark); margin-bottom: .5rem;
+    }
+    .why-item p { font-size: .81rem; line-height: 1.65; color: var(--muted); }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+    .contact { padding: 7rem 6%; background: var(--brown-dark); }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .contact-left .section-label { color: var(--rose-light); }
+    .contact-left .section-label::before { background: var(--rose-light); }
+    .contact-left .section-title { color: #fff; }
+    .contact-desc {
+      font-size: .96rem; line-height: 1.8;
+      color: rgba(255,255,255,.6); margin-bottom: 2rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: .9rem; }
+    .clink {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.05rem 1.4rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px; text-decoration: none;
+      transition: all .2s;
+    }
+    .clink:hover {
+      background: rgba(255,255,255,.12);
+      border-color: var(--rose-light);
+      transform: translateX(4px);
+    }
+    .clink-icon {
+      width: 42px; height: 42px;
+      background: var(--rose); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .clink-lbl { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom:.15rem; }
+    .clink-val { font-size: .93rem; font-weight: 500; color: #fff; }
+
+    /* Contact card / form */
+    .contact-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px; padding: 2.5rem;
+    }
+    .contact-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600; color: #fff; margin-bottom: .4rem;
+    }
+    .contact-card > p {
+      font-size: .83rem; color: rgba(255,255,255,.5); margin-bottom: 1.5rem;
+    }
+    .frow { display: flex; flex-direction: column; gap: .9rem; }
+    .finput {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 10px; padding: .88rem 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem; color: #fff;
+      outline: none; width: 100%;
+      transition: border-color .2s;
+    }
+    .finput::placeholder { color: rgba(255,255,255,.3); }
+    .finput:focus { border-color: var(--rose-light); }
+    select.finput option { color: #333; background: #fff; }
+    textarea.finput { resize: vertical; min-height: 95px; }
+    .fsubmit {
+      background: var(--rose); color: #fff;
+      border: none; padding: .92rem; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 600;
+      cursor: pointer; transition: background .2s; width: 100%;
+    }
+    .fsubmit:hover { background: var(--rose-dark); }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      padding: 1.75rem 6%; background: #2A1610;
+      text-align: center;
+    }
+    .footer p { font-size: .78rem; color: rgba(255,255,255,.3); }
+    .footer a { color: var(--rose-light); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* =========================================================
+       WHATSAPP FLOAT
+    ========================================================= */
+    .wa-float {
+      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 990;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,.4);
+      transition: all .2s;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 1024px) {
+      .service-grid { grid-template-columns: repeat(3,1fr); }
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: fixed;
+        top: 63px; left: 0; right: 0;
+        flex-direction: column; gap: 1rem;
+        background: rgba(250,244,238,.97);
+        padding: 1.5rem 6%;
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(12px);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .hero-photo { order: -1; }
+      .eyebrow { justify-content: center; }
+      .tags { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .photo-wrap img { height: 360px; }
+      .stat-card { display: none; }
+      .hero-blob { display: none; }
+      .hero-desc { margin: 0 auto 2rem; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-wrap img { height: 360px; }
+      .creds { grid-template-columns: 1fr; }
+
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+
+      .ppanel.active { grid-template-columns: 1fr; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 480px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .pricing-tabs { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: .5rem; }
+      .ptab { flex-shrink: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================================
+     NAVIGATION
+======================================================== -->
+<nav class="nav" id="navbar">
+  <a href="#home" class="nav-logo"><span>DN.</span> Shamayam Bashir</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Packages</a></li>
+    <li><a href="#contact" class="cta-link">Book Consultation</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ========================================================
+     HERO
+======================================================== -->
+<section class="hero" id="home">
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+
+    <div class="hero-text">
+      <div class="eyebrow">ZnZ Wellness Hub · Clinical Nutritionist</div>
+      <h1>
+        <span class="prefix">DN.</span><br>
+        Shamayam<br>Bashir
+      </h1>
+      <p class="hero-sub">Masters Scholar &nbsp;·&nbsp; HND Certified &nbsp;·&nbsp; Dietitians Society Member</p>
+      <p class="hero-desc">
+        Evidence-based nutrition care tailored to your body. Specialised support for weight, hormones, and chronic conditions — all from the comfort of your home.
+      </p>
+      <div class="tags">
+        <span class="tag">⚖️ Weight Management</span>
+        <span class="tag">🌸 PCOS</span>
+        <span class="tag">💊 Diabetes</span>
+        <span class="tag">❤️ Hypertension</span>
+        <span class="tag">🌿 Menopause</span>
+      </div>
+      <div class="hero-btns">
+        <a href="https://wa.me/923215664801" target="_blank" class="btn-primary">
+          💬&nbsp; WhatsApp Me
+        </a>
+        <a href="#pricing" class="btn-outline">
+          View Packages
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-wrap">
+        <div class="photo-ring"></div>
+        <img src="images/shamayam-portrait.png"
+             alt="DN. Shamayam Bashir, Clinical Nutritionist"
+             onerror="this.style.cssText='height:540px;background:var(--beige-mid);border-radius:55% 55% 46% 46%/65% 65% 38% 38%;'">
+      </div>
+      <div class="stat-card bottom">
+        <div class="stat-icon">🏥</div>
+        <div>
+          <div class="stat-num">2+</div>
+          <div class="stat-lbl">Hospital Experience</div>
+        </div>
+      </div>
+      <div class="stat-card top">
+        <div class="stat-num">2023</div>
+        <div class="stat-lbl">Online Since</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================
+     ABOUT
+======================================================== -->
+<section class="about" id="about">
+  <div class="about-inner">
+
+    <div class="about-img-wrap reveal">
+      <img src="images/shamayam-speaking.png"
+           alt="DN. Shamayam Bashir speaking at a health event"
+           onerror="this.style.cssText='height:520px;background:var(--beige-mid);border-radius:22px;'">
+      <div class="about-img-dot"></div>
+    </div>
+
+    <div class="about-body reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">
+        Nutrition isn't a diet —<br><em>it's a lifestyle.</em>
+      </h2>
+      <p>
+        I'm DN. Shamayam Bashir, a clinical nutritionist practising at ZnZ Wellness Hub by Dr. Zara Nouman. My approach is simple: understand your body deeply and build a way of eating that genuinely heals it — not one that exhausts or restricts you.
+      </p>
+      <p>
+        Since 2023, I've been offering personalised, science-backed consultations entirely online — making quality nutrition care accessible no matter where you are in Pakistan. I work across five key areas: weight management, PCOS, diabetes, hypertension, and menopause support.
+      </p>
+      <div class="creds">
+        <div class="cred">
+          <span class="cred-icon">🎓</span>
+          <p>Masters Scholar &amp; HND Certified in Nutrition &amp; Dietetics</p>
+        </div>
+        <div class="cred">
+          <span class="cred-icon">🏥</span>
+          <p>Clinical experience at two accredited hospitals</p>
+        </div>
+        <div class="cred">
+          <span class="cred-icon">🤝</span>
+          <p>Member, Nutritionists &amp; Dietitians Society of Pakistan</p>
+        </div>
+        <div class="cred">
+          <span class="cred-icon">📱</span>
+          <p>WhatsApp support 6 days/week for all active plans</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================
+     SERVICES
+======================================================== -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="section-hdr reveal">
+      <div class="section-label">What I Treat</div>
+      <h2 class="section-title">Areas of <em>Specialisation</em></h2>
+    </div>
+    <div class="service-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">⚖️</div>
+        <h3>Weight Management</h3>
+        <p>Personalised plans for healthy weight loss or gain, built around your body composition — not crash diets.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🌸</div>
+        <h3>PCOS</h3>
+        <p>Cycle-synced, anti-inflammatory nutrition to balance hormones, manage insulin resistance &amp; support fertility.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🌿</div>
+        <h3>Menopause</h3>
+        <p>Hormone-balancing meal plans, bone density support, and hot-flash management through targeted nutrition.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">❤️</div>
+        <h3>Hypertension</h3>
+        <p>DASH diet-based plans with low-sodium strategies, heart-healthy swaps &amp; BP monitoring through diet.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">💊</div>
+        <h3>Diabetes</h3>
+        <p>Glycemic-index meal plans, carb counting guides, and HbA1c tracking to manage blood sugar effectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     PRICING
+======================================================== -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-hdr reveal">
+      <div class="section-label">Packages &amp; Pricing</div>
+      <h2 class="section-title">Choose Your <em>Care Plan</em></h2>
+      <p style="color:var(--muted);margin-top:.7rem;font-size:.88rem;">Select your health concern below — each plan grows with you.</p>
+    </div>
+
+    <div class="pricing-tabs" role="tablist">
+      <button class="ptab active" onclick="switchTab('wl',this)">⚖️ Weight Loss/Gain</button>
+      <button class="ptab" onclick="switchTab('pcos',this)">🌸 PCOS</button>
+      <button class="ptab" onclick="switchTab('meno',this)">🌿 Menopause</button>
+      <button class="ptab" onclick="switchTab('hyper',this)">❤️ Hypertension</button>
+      <button class="ptab" onclick="switchTab('diab',this)">💊 Diabetes</button>
+    </div>
+
+    <!-- WEIGHT LOSS / GAIN -->
+    <div class="ppanel active" id="tab-wl">
+      <div class="plan-card">
+        <div class="plan-badge">Trial</div>
+        <div class="plan-dur">1 Month Plan</div>
+        <div class="plan-price">PKR 4,500</div>
+        <div class="plan-note">One-time payment</div>
+        <div class="plan-sess">2 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Body Composition Assessment</li>
+          <li>Starter Meal Plan</li>
+          <li>Basic Macro Guide</li>
+          <li>Healthy Food Options</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Weight Gain/Loss Starter Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%201-Month%20Weight%20Management%20Trial%20Plan%20(PKR%204%2C500)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-dur">3 Month Plan</div>
+        <div class="plan-price">PKR 12,000</div>
+        <div class="plan-note">Best value for lasting results</div>
+        <div class="plan-sess">6 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Body Composition Assessment</li>
+          <li>Balanced Meal Plan</li>
+          <li>Basic Macro Guide</li>
+          <li>Healthy Food Options</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>High/Low Calorie Recipes</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%203-Month%20Weight%20Management%20Plan%20(PKR%2012%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-dur">6 Month Plan</div>
+        <div class="plan-price">PKR 24,000</div>
+        <div class="plan-note">Full transformation support</div>
+        <div class="plan-sess">14 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Everything in 3-Month Plan</li>
+          <li>Muscle Building Nutrition Protocol</li>
+          <li>Pre/Post Workout Meal Guide</li>
+          <li>Supplement Guidance</li>
+          <li>Monthly Body Composition Review</li>
+          <li>Healthy Gain/Loss Tracker</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%206-Month%20Weight%20Management%20Plan%20(PKR%2024%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+    </div>
+
+    <!-- PCOS -->
+    <div class="ppanel" id="tab-pcos">
+      <div class="plan-card">
+        <div class="plan-badge">Trial</div>
+        <div class="plan-dur">1 Month Plan</div>
+        <div class="plan-price">PKR 5,500</div>
+        <div class="plan-note">One-time payment</div>
+        <div class="plan-sess">2 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Hormonal Assessment &amp; Review</li>
+          <li>Anti-inflammatory Starter Plan</li>
+          <li>Insulin Resistance Basics</li>
+          <li>Cycle Synced Nutrition Intro</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>PCOS Starter Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%201-Month%20PCOS%20Trial%20Plan%20(PKR%205%2C500)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-dur">3 Month Plan</div>
+        <div class="plan-price">PKR 14,000</div>
+        <div class="plan-note">Best value for lasting results</div>
+        <div class="plan-sess">6 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Hormonal Assessment &amp; Review</li>
+          <li>Anti-inflammatory Meal Plan</li>
+          <li>Insulin Resistance Management</li>
+          <li>Cycle Synced Nutrition Guide</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>PCOS Friendly Recipes</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%203-Month%20PCOS%20Plan%20(PKR%2014%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-dur">6 Month Plan</div>
+        <div class="plan-price">PKR 27,000</div>
+        <div class="plan-note">Full transformation support</div>
+        <div class="plan-sess">14 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Everything in 3-Month Plan</li>
+          <li>Fertility Supporting Nutrition</li>
+          <li>Androgen Lowering Diet Protocols</li>
+          <li>Gut Health &amp; PCOS Guide</li>
+          <li>Supplement Guidance</li>
+          <li>Monthly Hormone Symptom Tracker</li>
+          <li>PCOS Friendly Recipes</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%206-Month%20PCOS%20Plan%20(PKR%2027%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+    </div>
+
+    <!-- MENOPAUSE -->
+    <div class="ppanel" id="tab-meno">
+      <div class="plan-card">
+        <div class="plan-badge">Trial</div>
+        <div class="plan-dur">1 Month Plan</div>
+        <div class="plan-price">PKR 5,500</div>
+        <div class="plan-note">One-time payment</div>
+        <div class="plan-sess">2 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Initial Nutrition Assessment</li>
+          <li>Hormone Balancing Starter Plan</li>
+          <li>Calcium &amp; Vitamin D Basics</li>
+          <li>Hot Flash Diet Starter Tips</li>
+          <li>Followup — 6 days/week</li>
+          <li>Menopause Starter Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%201-Month%20Menopause%20Trial%20Plan%20(PKR%205%2C500)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-dur">3 Month Plan</div>
+        <div class="plan-price">PKR 14,000</div>
+        <div class="plan-note">Best value for lasting results</div>
+        <div class="plan-sess">6 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Initial Nutritional Assessment</li>
+          <li>Hormone Balancing Meal Plan</li>
+          <li>Calcium &amp; Vitamin D Optimisation</li>
+          <li>Hot Flash Management Diet Tips</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Workout Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%203-Month%20Menopause%20Plan%20(PKR%2014%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-dur">6 Month Plan</div>
+        <div class="plan-price">PKR 26,000</div>
+        <div class="plan-note">Full transformation support</div>
+        <div class="plan-sess">14 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Everything in 3-Month Plan</li>
+          <li>Heart Health Nutrition Protocol</li>
+          <li>Hormone Balancing Meal Plan</li>
+          <li>Bone Density Diet Support</li>
+          <li>Stress &amp; Sleep Nutrition Guide</li>
+          <li>Hot Flash Management Diet Tips</li>
+          <li>Monthly Progress Report</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%206-Month%20Menopause%20Plan%20(PKR%2026%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+    </div>
+
+    <!-- HYPERTENSION -->
+    <div class="ppanel" id="tab-hyper">
+      <div class="plan-card">
+        <div class="plan-badge">Trial</div>
+        <div class="plan-dur">1 Month Plan</div>
+        <div class="plan-price">PKR 5,000</div>
+        <div class="plan-note">One-time payment</div>
+        <div class="plan-sess">2 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Blood Pressure Diet Assessment</li>
+          <li>DASH Diet Starter Meal Plan</li>
+          <li>Low Sodium Basics</li>
+          <li>Heart Healthy Food Swaps</li>
+          <li>WhatsApp Support — 6 days/week</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%201-Month%20Hypertension%20Trial%20Plan%20(PKR%205%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-dur">3 Month Plan</div>
+        <div class="plan-price">PKR 13,000</div>
+        <div class="plan-note">Best value for lasting results</div>
+        <div class="plan-sess">6 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Blood Pressure Diet Assessment</li>
+          <li>DASH Diet Based Meal Plan</li>
+          <li>Low Sodium Cooking Guide</li>
+          <li>Heart Healthy Food Swaps</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Workout Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%203-Month%20Hypertension%20Plan%20(PKR%2013%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-dur">6 Month Plan</div>
+        <div class="plan-price">PKR 25,000</div>
+        <div class="plan-note">Full transformation support</div>
+        <div class="plan-sess">14 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Everything in 3-Month Plan</li>
+          <li>DASH Diet Based Meal Plan</li>
+          <li>Monthly BP Nutritional Review</li>
+          <li>Stress Eating &amp; BP Guide</li>
+          <li>Caffeine &amp; Sodium Management</li>
+          <li>Cholesterol Management via Diet</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%206-Month%20Hypertension%20Plan%20(PKR%2025%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+    </div>
+
+    <!-- DIABETES -->
+    <div class="ppanel" id="tab-diab">
+      <div class="plan-card">
+        <div class="plan-badge">Trial</div>
+        <div class="plan-dur">1 Month Plan</div>
+        <div class="plan-price">PKR 6,000</div>
+        <div class="plan-note">One-time payment</div>
+        <div class="plan-sess">2 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Blood Sugar Assessment Review</li>
+          <li>Glycemic Index Starter Meal Plan</li>
+          <li>Basic Carb Counting Guide</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Diabetic Starter Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%201-Month%20Diabetes%20Trial%20Plan%20(PKR%206%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-dur">3 Month Plan</div>
+        <div class="plan-price">PKR 15,000</div>
+        <div class="plan-note">Best value for lasting results</div>
+        <div class="plan-sess">6 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Blood Sugar Assessment Review</li>
+          <li>Glycemic Index Based Meal Plan</li>
+          <li>Carb Counting Guide</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Diabetic Friendly Recipes</li>
+          <li>Workout Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%203-Month%20Diabetes%20Plan%20(PKR%2015%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-dur">6 Month Plan</div>
+        <div class="plan-price">PKR 28,000</div>
+        <div class="plan-note">Full transformation support</div>
+        <div class="plan-sess">14 Follow-up Sessions</div>
+        <ul class="plan-list">
+          <li>Everything in 3-Month Plan</li>
+          <li>HbA1c Improvement Tracking</li>
+          <li>Diabetic Complications Prevention</li>
+          <li>WhatsApp Support — 6 days/week</li>
+          <li>Monthly Glucose Trend Review</li>
+          <li>Supplement &amp; Micronutrient Guide</li>
+          <li>Diabetic Snack Planning Guide</li>
+        </ul>
+        <a href="https://wa.me/923215664801?text=Hi!%20I'm%20interested%20in%20the%206-Month%20Diabetes%20Plan%20(PKR%2028%2C000)." target="_blank" class="plan-btn">Book This Plan</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================
+     WHY CHOOSE ME
+======================================================== -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-hdr reveal">
+      <div class="section-label">Why Choose Me</div>
+      <h2 class="section-title">Care That's <em>Personal</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-em">🎯</div>
+        <h4>Truly Personalised Plans</h4>
+        <p>Every meal plan, guide, and protocol is tailored to your labs, lifestyle, and goals — no copy-paste diets, ever.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-em">📱</div>
+        <h4>WhatsApp Support</h4>
+        <p>Stay accountable with quick answers and check-ins — 6 days a week via WhatsApp for all active plan members.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-em">🔬</div>
+        <h4>Evidence-Based</h4>
+        <p>Recommendations grounded in clinical nutrition science, not trends or fads. Your health deserves that standard.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-em">🌐</div>
+        <h4>Fully Online</h4>
+        <p>Book and attend from anywhere in Pakistan. All plans delivered digitally — zero commute, maximum convenience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     CONTACT
+======================================================== -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+
+    <div class="contact-left">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">
+        Ready to start your<br><em>health journey?</em>
+      </h2>
+      <p class="contact-desc">
+        Reach out via WhatsApp or Instagram to book your consultation. I'd love to hear your goals and build a plan around them.
+      </p>
+      <div class="contact-links">
+        <a href="https://wa.me/923215664801" target="_blank" class="clink">
+          <div class="clink-icon">💬</div>
+          <div>
+            <div class="clink-lbl">WhatsApp</div>
+            <div class="clink-val">+92 321 566 4801</div>
+          </div>
+        </a>
+        <a href="https://instagram.com/Dn.Shamayam" target="_blank" class="clink">
+          <div class="clink-icon">📸</div>
+          <div>
+            <div class="clink-lbl">Instagram</div>
+            <div class="clink-val">@Dn.Shamayam</div>
+          </div>
+        </a>
+        <a href="tel:+923215664801" class="clink">
+          <div class="clink-icon">📞</div>
+          <div>
+            <div class="clink-lbl">Phone</div>
+            <div class="clink-val">+92 321 566 4801</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h3>Send a Message</h3>
+      <p>I'll reply within 24 hours via WhatsApp.</p>
+      <div class="frow">
+        <input id="fname" type="text" class="finput" placeholder="Your Name">
+        <input id="fphone" type="tel" class="finput" placeholder="Your WhatsApp Number">
+        <select id="fconcern" class="finput">
+          <option value="">Select Your Concern</option>
+          <option value="Weight Loss / Weight Gain">Weight Loss / Weight Gain</option>
+          <option value="PCOS">PCOS</option>
+          <option value="Menopause">Menopause</option>
+          <option value="Hypertension">Hypertension</option>
+          <option value="Diabetes">Diabetes</option>
+        </select>
+        <textarea id="fmsg" class="finput" placeholder="Tell me a bit about your health goals…"></textarea>
+        <button class="fsubmit" onclick="sendWA()">Send via WhatsApp &nbsp;💬</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+======================================================== -->
+<footer class="footer">
+  <p>
+    © 2025 DN. Shamayam Bashir &nbsp;·&nbsp; ZnZ Wellness Hub by Dr. Zara Nouman
+    &nbsp;·&nbsp; <a href="https://instagram.com/Dn.Shamayam" target="_blank">@Dn.Shamayam</a>
+  </p>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/923215664801" target="_blank" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ========================================================
+     JAVASCRIPT
+======================================================== -->
+<script>
+  /* --- Nav scroll shadow --- */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  /* --- Hamburger menu --- */
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+
+  /* --- Pricing tab switcher --- */
+  function switchTab(id, btn) {
+    document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ppanel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+
+  /* --- WhatsApp contact form --- */
+  function sendWA() {
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const concern = document.getElementById('fconcern').value;
+    const msg     = document.getElementById('fmsg').value.trim();
+    if (!name) { alert('Please enter your name.'); return; }
+    const text = `Hi DN. Shamayam! 👋\n\nName: ${name}\nPhone: ${phone || 'Not provided'}\nConcern: ${concern || 'Not specified'}\n\nMessage: ${msg || 'I would like to book a consultation.'}`;
+    window.open('https://wa.me/923215664801?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  /* --- Smooth scroll for hash links --- */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* --- Scroll-reveal --- */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
